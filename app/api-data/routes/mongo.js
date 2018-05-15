@@ -3,7 +3,7 @@ var async = require("async");
 var router = express.Router();
 var jsonResponse = require("../models/jsonResponse");
 var mongoose = require("mongoose");
-var Subject = mongoose.model("Subject");
+var Subject = mongoose.model("Geodata");
 
 
 /* Default GET JSON for Mongo API */
@@ -14,7 +14,7 @@ router.get("/", function(req, res, next) {
 
 /* Get all geodata: GET /api/geodata */
 router.get("/geodata", function(req, res, next) {
-  Subject.find({})
+  Geodata.find({})
     .then(function(geodata) {
       var response = new jsonResponse("ok", 200, geodata);
       res.json(response).status(response.status);

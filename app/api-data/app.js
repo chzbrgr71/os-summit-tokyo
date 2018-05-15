@@ -38,7 +38,7 @@ app.use(cookieParser());
 
 require("./models/mongo/geodata");
 
-var Subject = mongoose.model("Geodata");
+var Geodata = mongoose.model("Geodata");
 
 var connectOptions = {
   useMongoClient: true,
