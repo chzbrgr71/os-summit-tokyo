@@ -6,7 +6,12 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var geodataSchema = new Schema({
-    FeatureCollection: mongoose.Schema.Types.Mixed
+    type: String,
+    properties: mongoose.Schema.Types.Mixed
+
+});
+
+mongoose.model('Geodata', geodataSchema, 'geodata');
 
     /*
     [ {
@@ -42,7 +47,4 @@ var geodataSchema = new Schema({
                 {"type":"Point",
                 "coordinates":[-27.0974,-55.9788,10]},
                 "id":"us1000e4vp"}] 
-                */
-});
-
-mongoose.model('Geodata', geodataSchema, 'geodata');
+*/

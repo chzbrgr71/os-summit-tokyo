@@ -4,7 +4,7 @@
   "description": "Open Source Summit Japan 2018",
   "author": "Brian Redmond",
   "scripts": {
-    "dev": "NODE_ENV='development' node ./bin/www"
+    "dev": "NODE_ENV='development' MONGODB_URI='mongodb://briarossjapan:Xw4h6ERxU7pcKwTl3noppfOIR1WMCwQ1pPHHndUEIvNaWulncFJaq1rmtX8X2gSUlfn7qTXaneWgKg98wZIBHg==@briarossjapan.documents.azure.com:10255/earthquakes?ssl=true' node ./bin/www"
   },
   "dependencies": {
     "async": "^2.6.0",

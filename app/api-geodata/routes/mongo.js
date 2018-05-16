@@ -3,7 +3,7 @@ var async = require("async");
 var router = express.Router();
 var jsonResponse = require("../models/jsonResponse");
 var mongoose = require("mongoose");
-var Subject = mongoose.model("Geodata");
+var Geodata = mongoose.model("Geodata");
 
 
 /* Default GET JSON for Mongo API */
