@@ -1,17 +1,15 @@
 
 var mongoose = require('mongoose');
 
-// https://www.npmjs.com/package/mongoose-geojson-schema
-
 var Schema = mongoose.Schema;
 
-var geodataSchema = new Schema({
+var earthquakeSchema = new Schema({
     type: String,
     properties: mongoose.Schema.Types.Mixed
 
 });
 
-mongoose.model('Geodata', geodataSchema, 'geodata');
+mongoose.model('Earthquake', earthquakeSchema, 'earthquakes');
 
     /*
     [ {

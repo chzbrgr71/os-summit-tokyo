@@ -3,7 +3,7 @@ var async = require("async");
 var router = express.Router();
 var jsonResponse = require("../models/jsonResponse");
 var mongoose = require("mongoose");
-var Geodata = mongoose.model("Geodata");
+var Earthquake = mongoose.model("Earthquake");
 
 
 /* Default GET JSON for Mongo API */
@@ -13,10 +13,11 @@ router.get("/", function(req, res, next) {
 });
 
 /* Get all geodata: GET /api/geodata */
-router.get("/geodata", function(req, res, next) {
-  Geodata.find({})
-    .then(function(geodata) {
-      var response = new jsonResponse("ok", 200, geodata);
+router.get("/earthquakes", function(req, res, next) {
+  console.log()
+  Earthquake.find({})
+    .then(function(earthquakes) {
+      var response = new jsonResponse("ok", 200, earthquakes);
       res.json(response).status(response.status);
     })
     .catch(next);

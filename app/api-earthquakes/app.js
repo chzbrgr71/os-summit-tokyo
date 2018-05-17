@@ -36,9 +36,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-require("./models/mongo/geodata");
+require("./models/mongo/earthquake");
 
-var Geodata = mongoose.model("Geodata");
+var Earthquake = mongoose.model("Earthquake");
 
 var connectOptions = {
   useMongoClient: true,
