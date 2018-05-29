@@ -52,7 +52,7 @@ export default {
       container: "map",
       style: "mapbox://styles/sonojorel/cjhqx01wc6cqr2rmp9b5x70w4",
       center: [-79.995888, 40.440624],
-      zoom: 14
+      zoom: 2
     });
 
     map.on("load", function() {

@@ -6,12 +6,6 @@ var fs = require("fs");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var async = require("async");
-const mongoose = require("mongoose");
-
-var URI = process.env.MONGODB_URI;
-
-var Schema = mongoose.Schema,
-  ObjectId = mongoose.Types.ObjectId;
 
 var app = express();
 
@@ -36,63 +30,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-require("./models/mongo/earthquake");
-
-var Earthquake = mongoose.model("Earthquake");
-
-var connectOptions = {
-  useMongoClient: true,
-  autoIndex: false
-};
-
-mongoose.Promise = require("bluebird");
-
-const reconnectTimeout = 10000; // ms.
-
-function connect() {
-  mongoose.connect(URI, connectOptions).catch(() => {});
-}
-
-// make sure your connected
-// the writings on the wall
-
-const db = mongoose.connection;
-
-db.on("connecting", () => {
-  console.info(`connecting to DB @ `, URI);
-});
-
-db.on("error", error => {
-  console.error(`connection error: ${error}`);
-  mongoose.disconnect();
-});
-
-db.on("connected", () => {
-  console.info(`connected`);
-});
-
-db.once("open", () => {
-  console.info(`connection opened!`);
-});
-
-db.on("reconnected", () => {
-  console.info(`db reconnected!`);
-});
-
-db.on("disconnected", () => {
-  console.error(
-    `db disconnected! reconnecting in ${reconnectTimeout / 1000}s...`
-  );
-  setTimeout(() => connect(), reconnectTimeout);
-});
-
-connect();
-
-var mongo = require("./routes/mongo");
+var location = require("./routes/location");
 var index = require("./routes/index");
 
 app.use("/", index);
-app.use("/api", mongo);
+app.use("/api", location);
 
 app.use(function(req, res, next) {
   var err = new Error("Not Found");

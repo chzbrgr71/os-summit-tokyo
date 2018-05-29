@@ -14,10 +14,16 @@ router.get("/", function(req, res, next) {
 
 /* Get all geodata: GET /api/geodata */
 router.get("/earthquakes", function(req, res, next) {
+
   console.log()
   Earthquake.find({})
     .then(function(earthquakes) {
-      var response = new jsonResponse("ok", 200, earthquakes);
+      // make a REST api call
+      
+      return earthquakes
+    })
+    .then (function(data){
+      var response = new jsonResponse("ok", 200, data);
       res.json(response).status(response.status);
     })
     .catch(next);
