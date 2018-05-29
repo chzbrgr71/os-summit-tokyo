@@ -1,0 +1,10 @@
+apiVersion: config.istio.io/v1alpha2
+kind: EgressRule
+metadata:
+  name: cosmos-egress-rule
+spec:
+  destination:
+    service: 191.237.32.44
+  ports:
+    - port: 10255
+      protocol: mongo
