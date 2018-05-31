@@ -30,7 +30,6 @@
 
 <script>
 import mapboxgl from "mapbox-gl";
-import SampleQuakes from "../assets/data/4.5_month.geojson.json";
 
 let map;
 let vm;
