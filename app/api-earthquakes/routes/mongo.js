@@ -4,7 +4,7 @@ var router = express.Router();
 var jsonResponse = require("../models/jsonResponse");
 var mongoose = require("mongoose");
 var Earthquake = mongoose.model("Earthquake");
-
+var axios = require('axios');
 
 /* Default GET JSON for Mongo API */
 router.get("/", function(req, res, next) {
@@ -18,8 +18,14 @@ router.get("/earthquakes", function(req, res, next) {
   console.log()
   Earthquake.find({})
     .then(function(earthquakes) {
-      // make a REST api call
-      
+      // make REST api call to location
+      axios.get('http://localhost:8000/api/location')
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.log(error);
+        });
       return earthquakes
     })
     .then (function(data){

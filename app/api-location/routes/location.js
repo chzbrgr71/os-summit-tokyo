@@ -4,9 +4,15 @@ var router = express.Router();
 var jsonResponse = require("../models/jsonResponse");
 
 /* Default GET JSON for Mongo API */
+router.get("/", function(req, res, next) {
+    var response = new jsonResponse("Default /api endpoint", 200, []);
+    res.json(response).status(response.status);
+  });
+
+/* GET for location */
 router.get("/location", function (req, res, next) {
     setTimeoutAsync(function () {
-        var rtnobject = { "branch": "Pittsburgh" };
+        var rtnobject = { "branchID":"1001", "branchLoc":"Pittsburgh" };
         var response = new jsonResponse("ok", 200, rtnobject);
         res.json(response).status(response.status);
     }, Math.floor(Math.random() * 2000) + 1);
