@@ -6,6 +6,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 8001
+EXPOSE 8080
 
 CMD [ "npm", "run", "dev" ]
