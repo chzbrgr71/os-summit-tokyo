@@ -6,6 +6,8 @@ var mongoose = require("mongoose");
 var Earthquake = mongoose.model("Earthquake");
 var axios = require('axios');
 
+var LOC_API = process.env.LOC_API;
+
 /* Default GET JSON for Mongo API */
 router.get("/", function(req, res, next) {
   var response = new jsonResponse("Default /api endpoint for mongo", 200, []);
@@ -19,7 +21,9 @@ router.get("/earthquakes", function(req, res, next) {
   Earthquake.find({})
     .then(function(earthquakes) {
       // make REST api call to location
-      axios.get('http://localhost:8000/api/location')
+      var locationApi = 'http://' + LOC_API + '/api/location'
+      console.log(locationApi)
+      axios.get(locationApi)
         .then(response => {
           console.log(response.data);
         })
