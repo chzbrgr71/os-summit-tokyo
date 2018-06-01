@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: web-earthquakes
+  name: web-earth
   labels:
-    name: web-earthquakes
+    name: web-earth
 spec:
   type: LoadBalancer
   ports:
@@ -11,31 +11,31 @@ spec:
     port: 8080
     targetPort: 8080
   selector:
-    app: web-earthquakes
+    app: web-earth
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-earthquakes
+  name: web-earth
   labels:
-    app: web-earthquakes
+    app: web-earth
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: web-earthquakes
+      app: web-earth
   template:
     metadata:
       labels:
-        app: web-earthquakes
+        app: web-earth
     spec:
       containers:
       - env:
         - name: EQ_API
           value: "http://104.43.128.138:8080/api/earthquakes"
-        image: chzbrgr71/web-earthquakes:v1
+        image: chzbrgr71/web-earth:v1
         imagePullPolicy: Always
-        name: web-earthquakes
+        name: web-earth
         ports:
         - containerPort: 8080
           protocol: TCP
