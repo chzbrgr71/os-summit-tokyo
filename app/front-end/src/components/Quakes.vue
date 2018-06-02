@@ -48,18 +48,25 @@ export default {
   },
   methods: {
     filterItems(type, data, cb){
-      var output
+      var output = {}
+      output['type'] = type
       switch(type) {
           case 'yellow':
-              output = data.filter(quake => quake.properties.mag < 4.8)
+              output['data'] = data.filter(quake => quake.properties.mag < 5)
+              output['icon'] = 'eq-yellow'
+              output['size'] = .35
               cb(output)
               break
           case 'orange':
-              output = data.filter(quake => (quake.properties.mag > 4.8 && quake.properties.mag <5.2))
+              output['data'] = data.filter(quake => (quake.properties.mag >= 5 && quake.properties.mag <5.4))
+              output['icon'] = 'eq-orange'
+              output['size'] = .4
               cb(output)
               break
           case 'red':
-              output = data.filter(quake => quake.properties.mag >= 5.2)
+              output['data'] = data.filter(quake => quake.properties.mag >= 5.4)
+              output['icon'] = 'eq-red'
+              output['size'] = .5
               cb(output)
               break
           default:
@@ -67,38 +74,21 @@ export default {
       }
 
     },
-    addLayer(type, data){
-      var icon = 'epi-' + type
-      var size
-
-      switch(type){
-        case 'yellow':
-          size = .3
-          break
-        case 'orange':
-          size = .35
-          break
-        case 'red':
-          size = .4
-          break
-        default:
-          break
-      }
-      
+    addLayer(obj){
       map.addLayer(
           {
-            'id': type,
+            'id': obj.type,
             'type': 'symbol',
             'source': {
               'type': 'geojson',
               'data': {
                   'type': 'FeatureCollection',
-                  'features': data
+                  'features': obj.data
               }
             },
             'layout': {
-              'icon-image': icon,
-              'icon-size': size,
+              'icon-image': obj.icon,
+              'icon-size': obj.size,
               //'text-field': '{mag}',
               'icon-allow-overlap': true,
               'text-allow-overlap':true,
@@ -114,7 +104,7 @@ export default {
             }
             })
 
-      map.on('click', type, function (e) {
+      map.on('click', obj.type, function (e) {
         var coordinates = e.features[0].geometry.coordinates.slice()
         var detail = e.features[0].properties
         var header = '<h3>Magnitude: ' + detail.mag + '</h3><ul>'
@@ -145,18 +135,17 @@ export default {
         return response.json() })
       .then((data) => {
         payload = data.payload
-
         vm.filterItems('red', payload, function(red){
-          console.log(red.length)
-          vm.addLayer('red', red)
+          console.log(red.data.length)
+          vm.addLayer(red)
         })
         vm.filterItems('orange', payload, function(orange){
-          console.log(orange.length)
-          vm.addLayer('orange', orange)
+          console.log(orange.data.length)
+          vm.addLayer(orange)
         })
         vm.filterItems('yellow', payload, function(yellow){
-          console.log(yellow.length)
-          vm.addLayer('yellow', yellow)
+          console.log(yellow.data.length)
+          vm.addLayer(yellow)
         })
       })
        
