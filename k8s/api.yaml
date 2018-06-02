@@ -8,8 +8,8 @@ spec:
   type: LoadBalancer
   ports:
   - name: http
-    port: 8080
-    targetPort: 8080
+    port: 8001
+    targetPort: 8001
   selector:
     app: api-earthquakes
 ---
@@ -57,7 +57,7 @@ spec:
         imagePullPolicy: Always
         name: api-earthquakes
         ports:
-        - containerPort: 8080
+        - containerPort: 8001
           protocol: TCP
       restartPolicy: Always
 ---

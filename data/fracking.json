@@ -1,0 +1,11 @@
+[
+    {"type":"Feature",
+     "properties":{
+        "well": "Garrison Unit 1H",
+        "wellid": "10001920201",
+        "time": 1526310739770,
+        "operator": "Chief Oil & Gas Llc",
+        "acres": 22858,
+        "sizebyMethanol": 10042},
+      "geometry":{"type":"Point","coordinates":[-27.0974,-55.9788,10]}}
+]
