@@ -5,7 +5,7 @@ metadata:
   labels:
     name: api-earthquakes
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
   - name: http
     port: 8001
@@ -20,7 +20,7 @@ metadata:
   labels:
     name: api-location
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
   - name: http
     port: 8000
@@ -53,7 +53,7 @@ spec:
             secretKeyRef:
               name: cosmos-db-secret
               key: uri
-        image: chzbrgr71/api-earthquakes:v1
+        image: chzbrgr71/api-earthquakes:v2
         imagePullPolicy: Always
         name: api-earthquakes
         ports:
@@ -78,7 +78,7 @@ spec:
         app: api-location
     spec:
       containers:
-        - image: chzbrgr71/api-location:v1
+        - image: chzbrgr71/api-location:v2
           imagePullPolicy: Always
           name: api-location
           ports:
