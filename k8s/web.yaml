@@ -32,8 +32,8 @@ spec:
       containers:
       - env:
         - name: EQ_API
-          value: "http://104.43.128.138:8080/api/earthquakes"
-        image: chzbrgr71/web-earth:v1
+          value: "http://gateway.brianredmond.io/api/earthquakes"
+        image: chzbrgr71/web-earth:v2
         imagePullPolicy: Always
         name: web-earth
         ports:

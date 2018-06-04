@@ -3,7 +3,7 @@ var async = require("async");
 var router = express.Router();
 var jsonResponse = require("../models/jsonResponse");
 var mongoose = require("mongoose");
-var Earthquake = mongoose.model("Earthquake");
+var Weather = mongoose.model("Weather");
 var axios = require('axios');
 
 var LOC_API = process.env.LOC_API;
@@ -14,12 +14,12 @@ router.get("/", function(req, res, next) {
   res.json(response).status(response.status);
 });
 
-/* Get all geodata: GET /api/earthquakes */
-router.get("/earthquakes", function(req, res, next) {
+/* Get all geodata: GET /api/weather */
+router.get("/weather", function(req, res, next) {
 
   console.log()
-  Earthquake.find({})
-    .then(function(earthquakes) {
+  Weather.find({})
+    .then(function(weather) {
       // make REST api call to location
       var locationApi = 'http://' + LOC_API + '/api/location'
       console.log(locationApi)
@@ -30,7 +30,7 @@ router.get("/earthquakes", function(req, res, next) {
         .catch(error => {
           console.log(error);
         });
-      return earthquakes
+      return weather
     })
     .then (function(data){
       var response = new jsonResponse("ok", 200, data);

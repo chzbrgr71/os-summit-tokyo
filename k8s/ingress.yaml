@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: gateway
+  annotations:
+    kubernetes.io/ingress.class: "istio"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /api/location
+        backend:
+          serviceName: api-location
+          servicePort: 8000
+      - path: /api/earthquakes
+        backend:
+          serviceName: api-earthquakes
+          servicePort: 8001
+      - path: /api/weather
+        backend:
+          serviceName: api-weather
+          servicePort: 8003
+      - path: /web
+        backend:
+          serviceName: web-earth
+          servicePort: 8080

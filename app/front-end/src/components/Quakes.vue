@@ -129,7 +129,7 @@ export default {
 
 
       let payload
-      const myRequest = new Request('http://104.43.128.138:8080/api/earthquakes')
+      const myRequest = new Request('http://gateway.brianredmond.io/api/earthquakes')
       fetch(myRequest)
       .then((response) => { 
         return response.json() })

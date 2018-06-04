@@ -1,0 +1,9 @@
+[
+    {"type":"Feature",
+     "properties":{
+        "incidentType": "Tornado",
+        "size": 8,
+        "time": 1526310739770,
+        "acres": 25},
+      "geometry":{"type":"Point","coordinates":[-27.0974,-55.9788,10]}}
+]
