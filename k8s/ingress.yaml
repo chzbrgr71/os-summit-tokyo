@@ -16,6 +16,10 @@ spec:
         backend:
           serviceName: api-earthquakes
           servicePort: 8001
+      - path: /api/weather
+        backend:
+          serviceName: api-weather
+          servicePort: 8003
       - path: /web
         backend:
           serviceName: web-earth
