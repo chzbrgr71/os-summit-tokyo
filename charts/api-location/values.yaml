@@ -1,0 +1,8 @@
+# Default values for chart
+
+location:
+  deployment: api-location
+  versionLabel: prod
+  replicas: 5
+  image: "chzbrgr71/api-location"
+  imageTag: "v2"

@@ -1,0 +1,7 @@
+name: api-location
+home: https://github.com/chzbrgr71/os-summit-tokyo
+version: 1.0
+description: node.js api app for istio demo
+maintainers: 
+  - name: chzbrgr71
+    email: brianisrunning@gmail.com

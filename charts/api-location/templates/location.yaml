@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{.Values.location.deployment}}"
+spec:
+  replicas: {{ default 5 .Values.location.replicas }}
+  selector:
+    matchLabels:
+      app: api-location
+  template:
+    metadata:
+      labels:
+        app: api-location
+        version: "{{.Values.location.versionLabel}}"
+    spec:
+      containers:
+        - image: "{{.Values.location.image}}:{{.Values.location.imageTag}}"
+          imagePullPolicy: Always
+          name: api-location
+          ports:
+          - containerPort: 8000
+            protocol: TCP
+      restartPolicy: Always
