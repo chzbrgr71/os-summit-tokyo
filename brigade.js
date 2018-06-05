@@ -32,7 +32,7 @@ events.on("push", (brigadeEvent, project) => {
     var helm = new Job("job-runner-helm")
     helm.storage.enabled = false
     helm.image = "chzbrgr71/k8s-helm:v2.9.1"
-    var imageFull = acrServer + "/" + acrImage
+    var imageFull = acrServer + "/" + image
     helm.tasks = [
         `helm upgrade --install api-location ./src/charts/api-location --namespace quake --set location.image=${imageFull} --set location.imageTag=${imageTag} --set location.deployment=api-location --set location.versionLabel=prod`
     ]
