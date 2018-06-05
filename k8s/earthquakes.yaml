@@ -13,21 +13,6 @@ spec:
   selector:
     app: api-earthquakes
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  name: api-location
-  labels:
-    name: api-location
-spec:
-  type: ClusterIP
-  ports:
-  - name: http
-    port: 8000
-    targetPort: 8000
-  selector:
-    app: api-location
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -59,29 +44,4 @@ spec:
         ports:
         - containerPort: 8001
           protocol: TCP
-      restartPolicy: Always
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: api-location
-  labels:
-    app: api-location
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: api-location
-  template:
-    metadata:
-      labels:
-        app: api-location
-    spec:
-      containers:
-        - image: chzbrgr71/api-location:v2
-          imagePullPolicy: Always
-          name: api-location
-          ports:
-          - containerPort: 8000
-            protocol: TCP
       restartPolicy: Always

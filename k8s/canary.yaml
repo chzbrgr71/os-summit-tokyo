@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-location-canary
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: api-location
+  template:
+    metadata:
+      labels:
+        app: api-location
+        version: canary
+    spec:
+      containers:
+        - image: chzbrgr71/api-location:v2
+          imagePullPolicy: Always
+          name: api-location
+          ports:
+          - containerPort: 8000
+            protocol: TCP
+      restartPolicy: Always

@@ -1,0 +1,14 @@
+apiVersion: config.istio.io/v1alpha2
+kind: RouteRule
+metadata:
+  name: api-routes
+spec:
+  destination:
+    name: api-location
+  route:
+  - labels:
+      version: prod
+    weight: 10
+  - labels:
+      version: canary
+    weight: 90
