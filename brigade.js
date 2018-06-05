@@ -32,13 +32,14 @@ events.on("push", (brigadeEvent, project) => {
     var helm = new Job("job-runner-helm")
     helm.storage.enabled = false
     helm.image = "chzbrgr71/k8s-helm:v2.9.1"
+    var imageFull = acrServer + "/" + acrImage
     helm.tasks = [
-        `helm upgrade --install --reuse-values kubecon ./src/app/web/charts/kubecon-rating-web --set image=${acrServer}/${image} --set imageTag=${imageTag}`
+        `helm upgrade --install api-location ./src/charts/api-location --reuse-values --namespace quake --set location.image=${imageFull} --set location.imageTag=${imageTag}`
     ]
 
     var pipeline = new Group()
     pipeline.add(acr)
-    //pipeline.add(helm)
+    pipeline.add(helm)
     
     if (branch == "master") {
         pipeline.runEach()
