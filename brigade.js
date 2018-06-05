@@ -34,7 +34,7 @@ events.on("push", (brigadeEvent, project) => {
     helm.image = "chzbrgr71/k8s-helm:v2.9.1"
     var imageFull = acrServer + "/" + acrImage
     helm.tasks = [
-        `helm upgrade --install api-location ./src/charts/api-location --reuse-values --namespace quake --set location.image=${imageFull} --set location.imageTag=${imageTag}`
+        `helm upgrade --install api-location ./src/charts/api-location --namespace quake --set location.image=${imageFull} --set location.imageTag=${imageTag} --set location.deployment=api-location --set location.versionLabel=prod`
     ]
 
     var pipeline = new Group()
