@@ -20,6 +20,10 @@ spec:
         backend:
           serviceName: api-weather
           servicePort: 8003
+      - path: /api/fracking
+        backend:
+          serviceName: api-fracking
+          servicePort: 8002
       - path: /web
         backend:
           serviceName: web-earth
