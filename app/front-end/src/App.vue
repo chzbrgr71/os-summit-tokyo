@@ -15,12 +15,12 @@
             <v-list-tile-title>Earthquakes</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile :to="{path: '/fracking'}">
+        <v-list-tile :to="{path: '/flights'}">
           <v-list-tile-action>
             <v-icon medium>play_for_work</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>Fracking</v-list-tile-title>
+            <v-list-tile-title>Flights</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
         <v-list-tile :to="{path: '/location'}">

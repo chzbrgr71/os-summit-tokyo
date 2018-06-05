@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Quakes from '@/components/Quakes'
+import Flights from '@/components/Flights'
 
 Vue.use(Router)
 
@@ -16,6 +17,11 @@ export default new Router({
       path: '/quakes',
       name: 'Quakes',
       component: Quakes
+    },
+    {
+      path: '/flights',
+      name: 'Flights',
+      component: Flights
     }
   ]
 })
