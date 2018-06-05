@@ -1,0 +1,12 @@
+project: "chzbrgr71/os-summit-tokyo"
+repository: "github.com/chzbrgr71/os-summit-tokyo"
+cloneURL: "https://github.com/chzbrgr71/os-summit-tokyo"
+sharedSecret: "MySuperSecretPassword"
+github:
+    token: ""
+secrets:
+    acrServer: 
+    acrName: 
+    azServicePrincipal: 
+    azClientSecret: 
+    azTenant: 
