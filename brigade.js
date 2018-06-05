@@ -23,7 +23,7 @@ events.on("push", (brigadeEvent, project) => {
     acr.storage.enabled = false
     acr.image = "microsoft/azure-cli:2.0.32"
     acr.tasks = [
-        `cd /app/api-location`,
+        `cd /src/app/api-location`,
         `az login --service-principal -u ${azServicePrincipal} -p ${azClientSecret} --tenant ${azTenant}`,
         `az acr build -t ${acrImage} -r ${acrName} .`
     ]
