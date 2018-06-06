@@ -58,7 +58,7 @@ api:
   # tag:
   service:
     name: brigade-api
-    type: ClusterIP
+    type: LoadBalancer
     externalPort: 7745
     internalPort: 7745
   # Configure liveness probes except `httpGet` and the belongings
