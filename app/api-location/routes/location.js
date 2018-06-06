@@ -15,7 +15,7 @@ router.get("/location", function (req, res, next) {
         var rtnobject = { "branchID":"1001", "branchLoc":"Pittsburgh" };
         var response = new jsonResponse("ok", 200, rtnobject);
         res.json(response).status(response.status);
-    }, Math.floor(Math.random() * 2000) + 1);
+    }, Math.floor(Math.random() * 3000) + 1);
 });
 
 function setTimeoutAsync(callback, time) {
