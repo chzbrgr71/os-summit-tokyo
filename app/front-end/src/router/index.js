@@ -1,17 +1,23 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import Quakes from '@/components/Quakes'
 import Flights from '@/components/Flights'
+import Fracking from '@/components/Fracking'
+import Quakes from '@/components/Quakes'
+import Weather from '@/components/Weather'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      path: '/flights',
+      name: 'Flights',
+      component: Flights
+    },
+    {
+      path: '/fracking',
+      name: 'Fracking',
+      component: Fracking
     },
     {
       path: '/quakes',
@@ -19,9 +25,9 @@ export default new Router({
       component: Quakes
     },
     {
-      path: '/flights',
-      name: 'Flights',
-      component: Flights
+      path: '/weather',
+      name: 'Weather',
+      component: Weather
     }
   ]
 })

@@ -7,20 +7,28 @@
       app
     >
       <v-list>
+        <v-list-tile :to="{path: '/flights'}">
+          <v-list-tile-action>
+            <v-icon medium>flight</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Flights</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile :to="{path: '/fracking'}">
+          <v-list-tile-action>
+            <v-icon medium>play_for_work</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Fracking</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
         <v-list-tile :to="{path: '/quakes'}">
           <v-list-tile-action>
             <v-icon medium>leak_add</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title>Earthquakes</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-        <v-list-tile :to="{path: '/flights'}">
-          <v-list-tile-action>
-            <v-icon medium>play_for_work</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Flights</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
         <v-list-tile :to="{path: '/location'}">
@@ -33,7 +41,7 @@
         </v-list-tile>
         <v-list-tile :to="{path: '/weather'}">
           <v-list-tile-action>
-            <v-icon medium>filter_drama</v-icon>
+            <v-icon medium>ac_unit</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title>Weather</v-list-tile-title>
