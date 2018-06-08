@@ -1,0 +1,65 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: quake-gateway
+spec:
+  selector:
+    istio: ingressgateway # use Istio default gateway implementation
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "gateway.brianredmond.io"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: quake-ingress
+spec:
+  hosts:
+  - "gateway.brianredmond.io"
+  gateways:
+  - quake-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /api/location
+    route:
+    - destination:
+        port:
+          number: 8000
+        host: api-location
+  - match:
+    - uri:
+        prefix: /api/earthquakes
+    route:
+    - destination:
+        port:
+          number: 8001
+        host: api-earthquakes
+  - match:
+    - uri:
+        prefix: /api/fracking
+    route:
+    - destination:
+        port:
+          number: 8002
+        host: api-fracking
+  - match:
+    - uri:
+        prefix: /api/weather
+    route:
+    - destination:
+        port:
+          number: 8003
+        host: api-weather
+  - match:
+    - uri:
+        prefix: /web
+    route:
+    - destination:
+        port:
+          number: 8080
+        host: web-earth

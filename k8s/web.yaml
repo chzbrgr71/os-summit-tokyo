@@ -33,7 +33,7 @@ spec:
       - env:
         - name: EQ_API
           value: "http://gateway.brianredmond.io/api/earthquakes"
-        image: chzbrgr71/web-earth:v2
+        image: chzbrgr71/web-earth:v4
         imagePullPolicy: Always
         name: web-earth
         ports:

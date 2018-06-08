@@ -7,7 +7,7 @@
     "operator": "ABC Oil & Gas Llc",
     "acres": 22858,
     "sizebyMethanol": 10042},
-  "geometry":{"type":"Point","coordinates":[-27.0974,-55.9788,10]}},
+  "geometry":{"type":"Point","coordinates":[-27.0974,-55.9788]}},
 {"type":"Feature",
 "properties":{
       "well": "Smith Unit 1",
@@ -16,7 +16,7 @@
       "operator": "DEF Oil & Gas Llc",
       "acres": 858,
       "sizebyMethanol": 1042},
-      "geometry":{"type":"Point","coordinates":[125.4387,10.1726,10]}},
+      "geometry":{"type":"Point","coordinates":[125.4387,10.1726]}},
 {"type":"Feature",
 "properties":{
     "well": "Roberts Unit 5",
@@ -25,7 +25,7 @@
     "operator": "GGG Oil & Gas Llc",
     "acres": 8585,
     "sizebyMethanol": 942},
-    "geometry":{"type":"Point","coordinates":[51.3795,30.4405,10]}},
+    "geometry":{"type":"Point","coordinates":[51.3795,30.4405]}},
 {"type":"Feature",
 "properties":{
     "well": "Bob Unit 5",
@@ -34,5 +34,5 @@
     "operator": "XYZ Oil & Gas Llc",
     "acres": 85985,
     "sizebyMethanol": 1085},
-    "geometry":{"type":"Point","coordinates":[51.3795,30.4405,10]}}
+    "geometry":{"type":"Point","coordinates":[51.3795,30.4405]}}
 ]
