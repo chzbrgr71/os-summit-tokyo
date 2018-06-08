@@ -105,7 +105,7 @@ export default {
 
 
       let payload
-      const myRequest = new Request('http://10.1.0.10:8080/static/data/output.json')
+      const myRequest = new Request('http://web.brianredmond.io:8080/static/data/flights.json')
       fetch(myRequest)
       .then((response) => { 
         return response.json() })
