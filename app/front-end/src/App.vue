@@ -70,7 +70,7 @@
       </v-container>
     </v-content>
     <v-footer app fixed>
-      <span class="pl-3">&copy; 2017</span>
+      <span class="pl-3">Microsoft Intelligent Cloud Global Blackbelt</span>
     </v-footer>
   </v-app>
 </template>
