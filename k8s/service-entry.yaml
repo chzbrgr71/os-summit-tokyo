@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: cosmos-db
+spec:
+  hosts:
+  - briarossjapan.documents.azure.com
+  addresses:
+  - 191.237.32.44/27
+  ports:
+  - number: 10255
+    protocol: mongo
+    name: mongo-port
+  resolution: NONE
