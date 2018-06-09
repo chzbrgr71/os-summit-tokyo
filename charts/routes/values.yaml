@@ -1,5 +1,3 @@
 # Default values for chart
-prodLabel: prod
-prodWeight: 90
-canaryLabel: canary
-canaryWeight: 10
+prodWeight: 99
+canaryWeight: 1
