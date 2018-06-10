@@ -36,7 +36,7 @@ events.on("push", (brigadeEvent, project) => {
         helm.image = "chzbrgr71/k8s-helm:v2.9.1"
         helm.tasks = [
             `helm upgrade --install api-location ./src/charts/api-location --namespace quake --set location.image=${imageFull} --set location.imageTag=${imageTag} --set location.deployment=api-location --set location.versionLabel=prod`,
-            `helm upgrade --install routes ./src/charts/routes --namespace quake --set prodWeight=100 --set canaryWeight=0`
+            `helm upgrade --install routes ./src/charts/routes --namespace quake --set prodWeight=99 --set canaryWeight=1`
         ]
 
         var pipeline = new Group()

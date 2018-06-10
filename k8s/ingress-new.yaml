@@ -57,6 +57,14 @@ spec:
         host: api-weather
   - match:
     - uri:
+        prefix: /api/current
+    route:
+    - destination:
+        port:
+          number: 8004
+        host: api-flights
+  - match:
+    - uri:
         prefix: /web
     route:
     - destination:

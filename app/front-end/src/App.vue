@@ -31,14 +31,6 @@
             <v-list-tile-title>Earthquakes</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile :to="{path: '/location'}">
-          <v-list-tile-action>
-            <v-icon medium>my_location</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Location</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
         <v-list-tile :to="{path: '/weather'}">
           <v-list-tile-action>
             <v-icon medium>ac_unit</v-icon>
