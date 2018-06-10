@@ -70,7 +70,14 @@
       </v-container>
     </v-content>
     <v-footer app fixed>
-      <span class="pl-3">Microsoft Intelligent Cloud Global Blackbelt</span>
+      <v-layout row wrap justify-center>
+        <v-flex xs12 p-8 text-xs-center white--text subheading>
+          &copy;2018 <img
+            src="static/images/msft_logo_sm.png"
+            alt="Microsoft" height="14px"
+          > Intelligent Cloud Global Blackbelt Team
+        </v-flex>
+      </v-layout>
     </v-footer>
   </v-app>
 </template>
