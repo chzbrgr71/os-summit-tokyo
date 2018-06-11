@@ -46,7 +46,6 @@ export default {
   },
   methods: {
     addLayer(obj){
-      console.log(obj);
       map.addLayer(
           {
             'id': 'flights',
