@@ -1,0 +1,11 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: opensky
+spec:
+  hosts:
+  - opensky-network.org
+  ports:
+  - number: 443
+    name: https
+    protocol: HTTPS

@@ -24,7 +24,7 @@ events.on("push", (brigadeEvent, project) => {
     acr.tasks = [
         `cd /src/app/api-location`,
         `az login --service-principal -u ${azServicePrincipal} -p ${azClientSecret} --tenant ${azTenant}`,
-        `az acr build -t ${acrImage} -r ${acrName} .`
+        `az acr build --build-arg IMAGE_TAG_REF=${imageTag} -t ${acrImage} -r ${acrName} .`
     ]
 
     if (branch == "master") {

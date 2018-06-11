@@ -3,6 +3,8 @@ var async = require("async");
 var router = express.Router();
 var jsonResponse = require("../models/jsonResponse");
 
+var imageTag = process.env.IMAGE_TAG;
+
 /* Default GET JSON for Mongo API */
 router.get("/", function(req, res, next) {
     var response = new jsonResponse("Default /api endpoint", 200, []);
@@ -12,7 +14,7 @@ router.get("/", function(req, res, next) {
 /* GET for location */
 router.get("/location", function (req, res, next) {
     setTimeoutAsync(function () {
-        var rtnobject = { "branchID":"1001", "branchLoc":"Pittsburgh" };
+        var rtnobject = { "branchID":"1001", "branchLoc":"Pittsburgh", "imageTag":imageTag };
         var response = new jsonResponse("ok", 200, rtnobject);
         res.json(response).status(response.status);
     }, Math.floor(Math.random() * 1000) + 1);
