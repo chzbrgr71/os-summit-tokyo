@@ -17,10 +17,7 @@ let vm
 
 export default {
   data () {
-    return {
-      latitude: 40.440624,
-      longitude: -79.995888
-    }
+    return {}
   },
   created() {},
   computed: {},
@@ -43,12 +40,12 @@ export default {
     map.on('moveend', function(e) {
       vm.latitude = map.getCenter().lat
       vm.longitude = map.getCenter().lng
+      // console.log (map.getCenter())
     })
 
   },
   methods: {
     addLayer(weatherType, obj){
-      console.log(obj);
       map.addLayer(
           {
             'id': weatherType,
@@ -113,7 +110,7 @@ export default {
         }
 
       let payload
-      const myRequest = new Request('http://gateway.brianredmond.io/api/weather')
+      const myRequest = new Request('/api/weather')
       fetch(myRequest)
       .then((response) => { 
         return response.json() })

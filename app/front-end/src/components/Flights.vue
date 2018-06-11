@@ -17,10 +17,7 @@ let vm
 
 export default {
   data () {
-    return {
-      latitude: 40.440624,
-      longitude: -79.995888
-    }
+    return {}
   },
   created() {},
   computed: {},
@@ -43,6 +40,7 @@ export default {
     map.on('moveend', function(e) {
       vm.latitude = map.getCenter().lat
       vm.longitude = map.getCenter().lng
+      // console.log (map.getCenter())
     })
 
   },
@@ -102,10 +100,11 @@ export default {
 
     },
     loadFlights() {
-
-
       let payload
-      const myRequest = new Request('http://gateway.brianredmond.io/api/current')
+
+      // local proxy to middleware (see /config/index.js proxyTable)
+      const myRequest = new Request('/api/flights')
+
       fetch(myRequest)
       .then((response) => { 
         return response.json() })

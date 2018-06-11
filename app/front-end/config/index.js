@@ -10,7 +10,39 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+
+    // Lets look at ENV / Secrets for these URLS below
+    proxyTable: {
+      '/api/quakes': {
+        target: 'http://gateway.brianredmond.io/api/earthquakes',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api/quakes': ''
+        },
+      },
+      '/api/flights': {
+        target: 'http://gateway.brianredmond.io/api/current',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api/flights': ''
+        },
+      },
+      '/api/weather': {
+        target: 'http://gateway.brianredmond.io/api/weather',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api/weather': ''
+        },
+      },
+      '/api/fracking': {
+        target: 'http://gateway.brianredmond.io/api/fracking',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api/fracking': ''
+        },
+      },
+  
+    },
     headers: {
       'Access-Control-Allow-Origin': '*',
     },

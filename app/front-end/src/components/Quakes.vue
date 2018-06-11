@@ -17,10 +17,7 @@ let vm
 
 export default {
   data () {
-    return {
-      latitude: 40.440624,
-      longitude: -79.995888
-    }
+    return {}
   },
   created() {},
   computed: {},
@@ -31,7 +28,7 @@ export default {
     map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/sonojorel/cjhw8422i15g72snx2zsof3s1',
-      center: [-79.995888, 40.440624],
+      center: [-130.915, 9.15],
       zoom: 2
     })
 
@@ -43,6 +40,7 @@ export default {
     map.on('moveend', function(e) {
       vm.latitude = map.getCenter().lat
       vm.longitude = map.getCenter().lng
+      // console.log (map.getCenter())
     })
 
   },
@@ -126,25 +124,23 @@ export default {
 
     },
     loadQuakes() {
-
-
       let payload
-      const myRequest = new Request('http://gateway.brianredmond.io/api/earthquakes')
+
+      // local proxy to middleware (see /config/index.js proxyTable)
+      const myRequest = new Request('/api/quakes')
+
       fetch(myRequest)
       .then((response) => { 
         return response.json() })
       .then((data) => {
         payload = data.payload
         vm.filterItems('red', payload, function(red){
-          console.log(red.data.length)
           vm.addLayer(red)
         })
         vm.filterItems('orange', payload, function(orange){
-          console.log(orange.data.length)
           vm.addLayer(orange)
         })
         vm.filterItems('yellow', payload, function(yellow){
-          console.log(yellow.data.length)
           vm.addLayer(yellow)
         })
       })
