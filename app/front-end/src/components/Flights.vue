@@ -105,7 +105,7 @@ export default {
 
 
       let payload
-      const myRequest = new Request('http://web.brianredmond.io:8080/static/data/flights.json')
+      const myRequest = new Request('http://gateway.brianredmond.io/api/current')
       fetch(myRequest)
       .then((response) => { 
         return response.json() })
