@@ -101,7 +101,7 @@ export default {
       let payload
       
       // local proxy to middleware (see /config/index.js proxyTable)
-      const myRequest = new Request('/api/fracking')
+      const myRequest = new Request('http://gateway.brianredmond.io/api/fracking')
 
       fetch(myRequest)
       .then((response) => { 
