@@ -102,7 +102,7 @@ export default {
       let payload
 
       // local proxy to middleware (see /config/index.js proxyTable)
-      const myRequest = new Request('/api/flights')
+      const myRequest = new Request('http://web.brianredmond.io:8080/static/data/flights.json')
 
       fetch(myRequest)
       .then((response) => { 

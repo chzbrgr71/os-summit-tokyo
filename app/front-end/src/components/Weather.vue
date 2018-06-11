@@ -110,7 +110,7 @@ export default {
         }
 
       let payload
-      const myRequest = new Request('/api/weather')
+      const myRequest = new Request('http://gateway.brianredmond.io/api/weather')
       fetch(myRequest)
       .then((response) => { 
         return response.json() })

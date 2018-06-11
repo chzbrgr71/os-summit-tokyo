@@ -127,7 +127,7 @@ export default {
       let payload
 
       // local proxy to middleware (see /config/index.js proxyTable)
-      const myRequest = new Request('/api/quakes')
+      const myRequest = new Request('http://gateway.brianredmond.io/api/earthquakes')
 
       fetch(myRequest)
       .then((response) => { 
