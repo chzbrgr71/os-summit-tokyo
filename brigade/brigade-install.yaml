@@ -34,7 +34,7 @@
 # to the rules created here. We recommend that you understand RBACs
 # before enabling this.
 rbac:
-  enabled: false
+  enabled: true
 
 # controller is the main event processor in Brigade.
 controller:

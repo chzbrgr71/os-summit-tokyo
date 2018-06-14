@@ -43,7 +43,7 @@
     </v-navigation-drawer>
     <v-toolbar app fixed clipped-left>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title class="hidden-sm-and-down">Open Source Summit Japan</v-toolbar-title>
+      <v-toolbar-title class="hidden-sm-and-down">LinuxCon, ContainerCon, CloudOpen 2018 China</v-toolbar-title>
       <v-spacer></v-spacer>
         <v-avatar size="22" tile>
           <img
